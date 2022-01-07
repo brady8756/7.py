@@ -65,6 +65,3 @@ def show():
 
     if st.session_state.winner:
         st.success(f"Congrats! {st.session_state.winner} won the game! 🎈")
-
-if _name_ == "_main_":
-    show()
