@@ -1,14 +1,12 @@
 import streamlit as st
 import numpy as np
 
-
 # From: https://stackoverflow.com/questions/39922967/python-determine-tic-tac-toe-winner
 def checkRows(board):
     for row in board:
         if len(set(row)) == 1:
             return row[0]
     return None
-
 
 def checkDiagonals(board):
     if len(set([board[i][i] for i in range(len(board))])) == 1:
@@ -17,7 +15,6 @@ def checkDiagonals(board):
         return board[0][len(board) - 1]
     return None
 
-
 def checkWin(board):
     # transposition to check rows, then columns
     for newBoard in [board, np.transpose(board)]:
@@ -25,7 +22,6 @@ def checkWin(board):
         if result:
             return result
     return checkDiagonals(board)
-
 
 def show():
     st.write(
@@ -69,7 +65,6 @@ def show():
 
     if st.session_state.winner:
         st.success(f"Congrats! {st.session_state.winner} won the game! 🎈")
-
 
 if _name_ == "_main_":
     show()
